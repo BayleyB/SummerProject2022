@@ -102,7 +102,8 @@ with mp_hands.Hands(max_num_hands=1, min_detection_confidence=0.8, min_tracking_
             cv2.imshow('Rock, Paper, Scissors', image)
             cv2.waitKey(0)
 
-        cv2.putText(image, 'Press q to exit game', (10, 450), font, 1, (255, 255, 255), 2)
+        cv2.putText(image, 'Press Space to lock in choice', (10, 400), font, 1, (255, 255, 255), 2)
+        cv2.putText(image, 'Press Q to exit game', (10, 450), font, 1, (255, 255, 255), 2)
         cv2.imshow('Rock, Paper, Scissors', image)
 
         #Pressing q will break from the loop and close out the window
