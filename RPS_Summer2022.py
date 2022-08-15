@@ -2,6 +2,8 @@ import mediapipe as mp
 import cv2
 import random
 
+font = cv2.FONT_HERSHEY_COMPLEX
+
 mp_hand_drawing = mp.solutions.drawing_utils #Helps with drawing hand landmarks
 mp_hands = mp.solutions.hands
 
@@ -74,7 +76,7 @@ with mp_hands.Hands(max_num_hands=1, min_detection_confidence=0.8, min_tracking_
                 else:
                     player_choice = 'Choosing...'
 
-        cv2.putText(image, player_choice, (10, 25), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 0, 0), 2)
+        cv2.putText(image, player_choice, (10, 25), font, 1, (255, 0, 0), 2)
 
         #Determine whether the player wins, loses, or ties
         if (cv2.waitKey(10) & 0xFF == ord(' ')) and player_choice != 'Choosing...':
@@ -85,22 +87,22 @@ with mp_hands.Hands(max_num_hands=1, min_detection_confidence=0.8, min_tracking_
                 comp_choice = 'Paper'
             elif(comp_choice_num == 3):
                 comp_choice = 'Rock'
-            cv2.putText(image, comp_choice, (475, 25), cv2.FONT_HERSHEY_COMPLEX, 1, (0, 0, 255), 2)
+            cv2.putText(image, comp_choice, (475, 25), font, 1, (0, 0, 255), 2)
 
             if ((player_choice == 'Scissors' and comp_choice == 'Paper') 
             or (player_choice == 'Paper' and comp_choice == 'Rock')
             or (player_choice == 'Rock' and comp_choice == 'Scissors')):
-                cv2.putText(image, 'WINNER', (125, 200), cv2.FONT_HERSHEY_COMPLEX, 3, (20, 255, 155), 2)
+                cv2.putText(image, 'WINNER', (125, 200), font, 3, (20, 255, 155), 2)
             elif (player_choice == comp_choice):
-                cv2.putText(image, 'TIE', (225, 200), cv2.FONT_HERSHEY_COMPLEX, 3, (0, 230, 255), 2)
+                cv2.putText(image, 'TIE', (225, 200), font, 3, (0, 230, 255), 2)
             else:
-                cv2.putText(image, 'YOU LOSE', (75, 200), cv2.FONT_HERSHEY_COMPLEX, 3, (0, 0, 255), 2)
+                cv2.putText(image, 'YOU LOSE', (75, 200), font, 3, (0, 0, 255), 2)
 
-            cv2.putText(image, 'Press any key to continue...', (75, 300), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 255, 255), 2)
+            cv2.putText(image, 'Press any key to continue...', (75, 300), font, 1, (255, 255, 255), 2)
             cv2.imshow('Rock, Paper, Scissors', image)
             cv2.waitKey(0)
 
-        cv2.putText(image, 'Press q to exit game', (10, 450), cv2.FONT_HERSHEY_COMPLEX, 1, (255, 255, 255), 2)
+        cv2.putText(image, 'Press q to exit game', (10, 450), font, 1, (255, 255, 255), 2)
         cv2.imshow('Rock, Paper, Scissors', image)
 
         #Pressing q will break from the loop and close out the window
