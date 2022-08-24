@@ -2,6 +2,7 @@ import game as rps
 import menu_resources as mr
 import PySimpleGUI as psg
 
+#Program parameters
 large_font = ("Arial", 30)
 small_font = ("Arial", 10)
 bg_color = 'black'
