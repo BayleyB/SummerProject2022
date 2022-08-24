@@ -10,6 +10,7 @@ menu_button_color = 'blue'
 window_width = 500
 window_height = 300
 
+#Configuring menu layout and window
 menu_layout = [[psg.Text("Rock, Paper, Scissors", font=large_font, background_color=bg_color)], 
                [psg.Text("By: Bayley Barreuther", font=small_font, background_color=bg_color)],
                [psg.Text("Summer 2022\n", font=small_font, background_color=bg_color)],
@@ -22,6 +23,7 @@ menu_window = psg.Window("Rock, Paper, Scissors", menu_layout,
                          size=(window_width, window_height),
                          element_justification='c')
 
+#Main program loop
 while True:
     event, _ = menu_window.read()
 
